@@ -1,6 +1,7 @@
 // Import dependencies
 const express = require('express');
 const fs = require('fs');
+const notesResouce = require('./routes/notesResource');
 
 // Create app
 const PORT = 3001;
@@ -11,6 +12,7 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // Import routes
+app.use('/notes', notesResouce);
 
 
 // Begin app
