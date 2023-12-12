@@ -44,6 +44,29 @@ apiResource.delete('/notes/:id', (req,res)=> {
 
     const notes = require('../db/db.json');
     const id = req.params.id;
+    console.log(id);
+    let deleted = false;
+
+    for(let i = 0; i < notes.length; i ++) {
+        // Iterate over notes and search for id
+        if(notes[i].id === id) {
+            // if id is found, delete record.
+            let removed = notes.splice(i,i);
+            console.log(removed);
+            deleted = true;
+
+            break;
+        }
+    }
+    // Only write new file is successfully deleted. Else return error
+    if(deleted) {
+        fs.writeFile(DBPATH,JSON.stringify(notes),(err) => err ? console.log(err) : console.log('Database updated.'));
+        res.sendStatus(200);
+    } else {
+        res.sendStatus(400);
+    }
+    
+    
 
 
 })
