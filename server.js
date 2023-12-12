@@ -21,7 +21,10 @@ app.get('/', (req,res)=> {
 
 app.get('/notes', (req,res)=> {
     // `GET /notes` should return the `notes.html` file.
-
+    const options = {root: __dirname};
+    res.sendFile('public/notes.html', options, (err) => {
+        err ? console.log(err) : console.log('notes.html sent');
+    });
 })
 
 
