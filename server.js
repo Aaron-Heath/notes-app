@@ -16,11 +16,11 @@ app.use('/api', notesResouce);
 
 
 app.get('/', (req,res)=> {
-    // `GET *` should return the `index.html` file.
+    // `GET *` should return the `index.html` file. -- Done!
 })
 
 app.get('/notes', (req,res)=> {
-    // `GET /notes` should return the `notes.html` file.
+    // `GET /notes` should return the `notes.html` file. -- Done!
     const options = {root: __dirname};
     res.sendFile('public/notes.html', options, (err) => {
         err ? console.log(err) : console.log('notes.html sent');
