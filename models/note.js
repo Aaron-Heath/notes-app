@@ -43,7 +43,7 @@ class Note {
         return {
             title: this.#title,
             text: this.#text,
-            uuid: this.#uuid
+            id: this.#uuid
         }
     }
 
