@@ -31,11 +31,12 @@ apiResource.post('/notes', (req,res)=> {
     notes.push(new Note(newNote.title, newNote.text).copy());
 
     fs.writeFile(DBPATH,JSON.stringify(notes),(err) => err ? console.log(err) : console.log('Database updated.'));
+    res.sendStatus(200);
 
 
 
 
-})
+});
 
 apiResource.delete('/notes/:id', (req,res)=> {
     const notes = require('../db/db.json');
